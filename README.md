@@ -1,4 +1,4 @@
-*CRC
-**Integrantes:
-*** Killiam Puentes
-*** Steven Buritica
+#CRC
+##Integrantes:
+### Killiam Puentes
+### Steven Buritica
