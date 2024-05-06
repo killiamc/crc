@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es"></html>
+<head>
+    <meta charset="UTF-8">
+    <title>Forget</title>
+    <link rel="stylesheet" href="{% static 'Assets/Forget.css' %}">
+</head>
+
+<body>
+    <div class="header-logo">
+        <img id="left-header" src="{% static 'Assets/Forget.css' %}img/GOV_ICON.png" alt="Logo">
+        <img id="right-header" src="{% static 'Assets/Forget.css' %}img/CRC_ICON.png" alt="Logo">
+    </div>
+
+    <div class = "login_container">
+
+        <img id="error-logo" src="{% static 'img/ERROR_ICON.png' %}" alt="Logo">
+        <h3 style="color: white;">Tienes problemas iniciando sesión?</h3>
+        <h4 style="color: white;">Ingresa tu correo electronico y te enviaremos un link para recuperar tu cuenta</h4>
+        <div class="login_container_child">
+            <form>
+                <input type="text" id="input-login" name="Correo"  placeholder="Ingresa tu correo electronico"  required>
+            <br>
+                <input type="submit" id="input-button" value="Recuperar Contraseña">
+            </form>
+                <hr class="hr_separator"> 
+                <h5><a href="Login.html" style="color: #f7f7f7;">Volver al inicio de sesión?</a></h5>
+        </div>
+        
+    </div>
+
+    <footer id="footer">
+        <img id="footer-logo" src="{% static 'img/COL_ICON.png' %}" alt="Logo">
+        <img id="footer-left" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
+    </footer>
+</body>

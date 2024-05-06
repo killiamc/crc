@@ -1,0 +1,290 @@
+body{
+    background-color: #2A2573;
+    font-family: 'Droid Sans', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000;
+    margin: 0;
+}
+article, p, .myDiv{
+    font-size: 1.25em;
+    font-weight: bold;
+    line-height: 2em;
+    padding: 10px;
+    color: #00ffaa;
+}
+
+.Bordeup{
+    color: #EAEAEA;
+    background-color: #3366CC;
+    width: auto;
+    height: 45px;
+    position: relative;
+}
+.gov1{
+    width:120px;
+    height:22px;
+    position: absolute;
+    left: 110px;
+    top: 10px;
+}
+.btn_usuario{
+    width: 120px;
+    height: 30px;
+    position: absolute;
+    background-color: white;
+    color: #3366CC;
+    border: white;
+    border-radius: 7% 7% 7% 7%;
+    cursor: pointer;
+    top: 7px;
+    right: 70px;
+}
+
+
+.crcborde{
+    background-color: #F42E62;
+    width: auto;
+    height: 150px;
+    position: relative;
+    text-align: center;
+}
+
+.panel_cambiousr{
+    background-color: #2A2573;
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    visibility: hidden;
+}
+
+
+h5{
+    font-family: 'Droid Sans', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 10px;
+}
+.cuadro_salir_usr{
+    background-color: #2A2573;
+    width: 300px;
+    height: 30px;
+    position: relative;
+    right: 0px;
+    top: 0px;
+}
+
+.Salir_usr{
+    margin: 5px;
+    right: 0px;
+    height: 30px;
+    width: 130px;
+    position: absolute;
+    background-color: #2A2573;
+    border: #2A2573;
+    color: white;
+    cursor: pointer;
+}
+.cambiar_cuenta{
+    right: 0px;
+    height: 30px;
+    width: 130px;
+    background-color: #2A2573;
+    border: #2A2573;
+    color: white;
+    cursor: pointer;
+}
+.crcimg_usr{
+    width:150px;
+    height:30px;
+    left: 2px;
+    position: absolute;
+}
+
+.crcimg{
+    width:270px;
+    height:100px;
+    left: 8px;
+}
+
+.panel_control{
+    background-color: #D9D9D9;
+    width: auto;
+    height: 70px;
+    text-align: center;
+    align-items: center;
+}
+
+.btn_usuarios,.btn_cargar,.btn_prepro,.btn_graf{
+    position: relative;
+    top: 11px;
+    margin-left: 7px;
+    margin-right: 7px;
+    width: 150px;
+    height: 40px;
+    background-color: #D9D9D9;
+    color: black;
+    border: #2A2573;
+    border-radius: 7% 7% 7% 7%;
+    cursor: pointer;
+}
+
+.btn_usuarios:hover{
+    background-color: #2A2573;
+    color: white;
+}
+
+.btn_cargar:hover{
+    background-color: #2A2573;
+    color: white;
+}
+
+.btn_prepro:hover{
+    background-color: #2A2573;
+    color: white;
+}
+
+.btn_graf:hover{
+    background-color: #2A2573;
+    color: white;
+}
+
+.central {
+    background-color: #2A2573;
+    width: auto;
+    min-height: 500px;
+    height: auto;
+    position: relative;
+    padding: 5px;
+}
+
+.Panel_admin {
+    z-index: 1; 
+    width: auto;
+    height: 600px;
+    background-color: #F7F7F7;
+    position: relative;
+    padding: 5px;
+    color: #2A2573;
+    text-align: center;
+}
+.btn_subir{
+    width: 120px;
+    height: 50px;
+    background-color: #3366CC;
+    color: #D9D9D9;
+    border: #3366CC;
+    border-radius: 7% 7% 7% 7%;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;   
+}
+
+
+.btn_subir {
+    justify-content: center;
+}
+
+
+.menu_central {
+    z-index: 2; 
+    width: auto;
+    min-width: 320px;
+    height: 600px;
+    background-color: #2A2573;
+    position: absolute;
+    padding: 5px;
+    color: #000000;
+}
+
+
+.historico_trafico,.abonados,.ingresos {
+    z-index: 2; 
+    min-width: 280px;
+    width: auto;
+    height: 100px;
+    text-align: center;
+    color: #2A2573;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.cuadradoa{
+    min-width: 325px;
+    width: auto;
+    height: 100px;
+    position: absolute;
+    background-color: #F42E62;
+    border-radius: 15px 0 0 15px;
+    align-items: center;
+    text-align: center;
+    color: #F7F7F7;
+
+}
+
+.bordea{
+    z-index: 1; 
+    position: absolute;
+    left: 320px;
+    height: auto;
+    border-left: solid #F42E62 50px ;
+    border-right: solid transparent 50px ;
+    border-bottom: solid transparent 50px ;
+    border-top: solid transparent 50px ;
+    
+}
+
+.cuadradotra,.cuadradoi{
+    min-width: 325px;
+    width: auto;
+    height: 100px;
+    position: absolute;
+    background-color: #D9D9D9;
+    border-radius: 15px 0 0 15px;
+    align-items: center;
+    text-align: center;
+    color: #2A2573;
+
+}
+.bordetra,.bordei{
+    z-index: 1; 
+    position: absolute;
+    left: 320px;
+    height: auto;
+    border-left: solid #D9D9D9 50px ;
+    border-right: solid transparent 50px ;
+    border-bottom: solid transparent 50px ;
+    border-top: solid transparent 50px ;
+    
+}
+
+
+
+.Bordedown{
+    color: #EAEAEA;
+    background-color: #3366CC;
+    width: auto;
+    height: 85px;
+    position: relative;
+}
+
+.gov2{
+    width:120px;
+    height:22px;
+    left: 5px;
+    position: absolute;
+    left: 180px;
+    top: 25px;
+}
+.img_col{
+    width:60px ;
+    height:60px ;
+    position: absolute;
+    left: 100px;
+    top: 10px;
+}
+
+
+
+hr{
+    border: dashed 2px #999;
+}

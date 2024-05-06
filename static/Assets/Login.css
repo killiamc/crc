@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css?family=Droid Sans");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #F7F7F7;
+    font-family: 'Droid Sans';
+    width: auto; 
+    margin: auto;
+    min-height: 100;
+}
+
+.header-logo{
+    background-color: #3366CC;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px; 
+    height: 70px;
+    
+}
+
+#left-header{
+    width: auto;
+    height: 30px;
+    max-width: 100%;
+}
+
+#right-header{
+    padding-right: 1%;
+    width: auto;
+    height: 60px;
+    max-width: 100%;
+}
+
+.login_container{
+    position: relative;
+    background-color: #3366CC;
+    border-radius: 37px;
+    margin: auto;
+    width: 40%;
+    height: 500px;
+    margin-top: 5%;
+    align-content: center;
+    padding-bottom: 2.5rem
+}
+
+.welcome-box{
+    position: relative;
+    background-color: #2A2573;
+    border-radius: 34px;
+    width: 100%;
+    height: 100px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 64;
+}
+
+.login-box{
+    position:relative;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    color: white;
+    font-size: 64;
+    padding-top: 12%;
+}
+
+#input-login{
+    position: relative;
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#input-button{
+    width: 80%;
+    background-color: #F42E62;
+    color: white;
+    font-size: medium;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hr_separator{
+    border: transparent;
+    height: 50px;	
+}
+
+#footer{
+    background-color: #3366CC;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    height: 50px; 
+}
+
+#footer-logo{
+    padding: 1%;
+    width: auto;
+    height: 40px;
+    max-width: 100%;
+}
+
+#footer-left{
+    padding-right: 1%;
+    width: auto;
+    height: 30px;
+    max-width: 100%;
+}
+
