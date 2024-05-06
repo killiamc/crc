@@ -1,38 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es"></html>
 <head>
     <meta charset="UTF-8">
     <title>User_Selection</title>
-    <link rel="stylesheet" href="Assets/User_Selection.css">
+    <link rel="stylesheet" href="{% static 'Assets/User_Selection.css' %}">
 </head>
 
 <body>
     <div class="header-logo">
-        <img id="left-header" src="img/GOV_ICON.png" alt="Logo">
-        <img id="right-header" src="img/CRC_ICON.png" alt="Logo">
+        <img id="left-header" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
+        <img id="right-header" src="{% static 'img/CRC_ICON.png' %}" alt="Logo">
     </div>
 
 
     <div class = "Img_container">
         <div class="Img_container_child">
             <h1 style="font-weight: bolder; color: #F42E62; font-size: 50px;">Bienvenidos!</h1>
-            <a href="Info.html" id="input_a">
-                <img src="img/People_ICON.png" alt="Logo">
+            <a href="{% static 'Info.html' %}" id="input_a">
+                <img src="{% static 'img/People_ICON.png' %}" alt="Logo">
             </a>
             <h2 style="font-size: medium; font-weight: lighter;">Continuar sin iniciar sesión</h2>
-            <a href="Login.html" id="input_a">
-                <img src="img/Pep_ICON.png" alt="Logo">
+            <a href="{% static 'Login.html' %}" id="input_a">
+                <img src="{% static 'img/Pep_ICON.png' %}" alt="Logo">
             </a>
-            <a href="Login.html">
+            <a href="{% static 'Login.html' %}">
                 <h2 style="font-size: medium; font-weight: lighter;">Iniciar sesión o registrarse</h2>
             </a>
         </div>
-        <img class="Img_bg" src="img/BG_IMG.png" alt="Logo">
+        <img class="Img_bg" src="{% static 'img/BG_IMG.png' %}" alt="Logo">
     </div>
 
 
     <footer id="footer">
-        <img id="footer-logo" src="img/COL_ICON.png" alt="Logo">
-        <img id="footer-left" src="img/GOV_ICON.png" alt="Logo">
+        <img id="footer-logo" src="{% static 'img/COL_ICON.png' %}" alt="Logo">
+        <img id="footer-left" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
     </footer>
 </body>

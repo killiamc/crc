@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es"></html>
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
-    <link rel="stylesheet" href="Assets/Registro.css">
+    <link rel="stylesheet" href="{% static 'Assets/Registro.css' %}">
 </head>
 
 <body>
     <div class="header-logo">
-        <img id="left-header" src="img/GOV_ICON.png" alt="Logo">
-        <img id="right-header" src="img/CRC_ICON.png" alt="Logo">
+        <img id="left-header" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
+        <img id="right-header" src="{% static 'img/CRC_ICON.png' %}" alt="Logo">
     </div>
 
 
@@ -18,11 +19,11 @@
         </div>
         <div class="Bk_container_child2">
             <div class="Buttons_Register_top">
-                <a href="Login.html">
-                    <img src="img/Return_ICON.png" alt="Logo">
+                <a href="{% static 'Login.html' %}">
+                    <img src="{% static 'img/Return_ICON.png' %}" alt="Logo">
                 </a>
 
-                <a href="Login.html">
+                <a href="{% static 'Login.html' %}">
                     <h5 style="color:#B9ADAD; font-size: 10px;">Ya tienes cuenta?</h5>
                 </a>
             </div>
@@ -51,7 +52,7 @@
     
 
     <footer id="footer">
-        <img id="footer-logo" src="img/COL_ICON.png" alt="Logo">
-        <img id="footer-left" src="img/GOV_ICON.png" alt="Logo">
+        <img id="footer-logo" src="{% static 'img/COL_ICON.png' %}" alt="Logo">
+        <img id="footer-left" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
     </footer>
 </body>

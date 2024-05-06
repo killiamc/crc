@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es"></html>
 <head>
     <meta charset="UTF-8">
     <title>Info</title>
-    <link rel="stylesheet" href="Assets/Info.css">
+    <link rel="stylesheet" href="{% static 'Assets/Info.css' %}">
 </head>
 
 <body>
     <div class="header-logo">
-        <img id="left-header" src="img/GOV_ICON.png" alt="Logo">
-        <img id="right-header" src="img/CRC_ICON.png" alt="Logo">
+        <img id="left-header" src="{% static 'Img/GOV_ICON.png' %}" alt="Logo">
+        <img id="right-header" src="{% static 'Img/CRC_ICON.png'%}" alt="Logo">
     </div>
 
     <div class="Sep_Container">
@@ -18,7 +19,7 @@
 
     <div class = "Info_container">
         <div class="Info_container_child">
-            <img src="img/SEARCH_ICON.png" alt="Logo">
+            <img src="{% static 'img/SEARCH_ICON.png' %}" alt="Logo">
             <h2>¿Qué es?</h2>
             <p>La Plataforma de Análisis del Mercado Móvil Colombiano es una  herramienta poderosa que permite a los usuarios explorar y comprender el  comportamiento del mercado de telefonía móvil en Colombia entre 2012 y  2023.</p>
         </div>
@@ -26,14 +27,14 @@
     </div>
 
     <div class="Button_Container">
-        <a href="Login.html" id="input_a">
+        <a href="{% static 'Login.html' %}" id="input_a">
             <button class="input-button">Acceder</button>
         </a>
     </div>
 
 
     <footer id="footer">
-        <img id="footer-logo" src="img/COL_ICON.png" alt="Logo">
-        <img id="footer-left" src="img/GOV_ICON.png" alt="Logo">
+        <img id="footer-logo" src="{% static 'img/COL_ICON.png' %}" alt="Logo">
+        <img id="footer-left" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
     </footer>
 </body>

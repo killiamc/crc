@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es"></html>
 <head>
@@ -8,8 +9,8 @@
 
 <body>
     <div class="header-logo">
-        <img id="left-header" src="{% static 'Assets/Forget.css' %}img/GOV_ICON.png" alt="Logo">
-        <img id="right-header" src="{% static 'Assets/Forget.css' %}img/CRC_ICON.png" alt="Logo">
+        <img id="left-header" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
+        <img id="right-header" src="{% static 'img/CRC_ICON.png' %}" alt="Logo">
     </div>
 
     <div class = "login_container">
@@ -24,7 +25,7 @@
                 <input type="submit" id="input-button" value="Recuperar Contraseña">
             </form>
                 <hr class="hr_separator"> 
-                <h5><a href="Login.html" style="color: #f7f7f7;">Volver al inicio de sesión?</a></h5>
+                <h5><a href="{% static 'Login.html' %}" style="color: #f7f7f7;">Volver al inicio de sesión?</a></h5>
         </div>
         
     </div>

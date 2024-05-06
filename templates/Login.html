@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es"></html>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="Assets/Login.css">
+    <link rel="stylesheet" href="{% static 'Assets/Login.css' %}">
 </head>
 
 <body>
     <div class="header-logo">
-        <img id="left-header" src="img/GOV_ICON.png" alt="Logo">
-        <img id="right-header" src="img/CRC_ICON.png" alt="Logo">
+        <img id="left-header" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
+        <img id="right-header" src="{% static 'img/CRC_ICON.png' %}" alt="Logo">
     </div>
 
     <div class = "login_container">
@@ -27,14 +28,14 @@
                 <input type="submit" id="input-button" value="Ingresar" onclick="window.location.href='User_admin_listausuarios.html'">
             </form>
 
-            <h5><a href="Forget.html" style="color: #E3D190;">¿Olvidaste tu Contraseña?</a></h5>
+            <h5><a href="{% static 'Forget.html' %}" style="color: #E3D190;">¿Olvidaste tu Contraseña?</a></h5>
             <hr class="hr_separator"> 
-            <h5><a href="Registro.html" style="color: #f7f7f7;">¿No tienes cuenta? Registrate</a></h5>
+            <h5><a href="{% static 'Registro.html' %}" style="color: #f7f7f7;">¿No tienes cuenta? Registrate</a></h5>
         </div>
     </div>
 
     <footer id="footer">
-        <img id="footer-logo" src="img/COL_ICON.png" alt="Logo">
-        <img id="footer-left" src="img/GOV_ICON.png" alt="Logo">
+        <img id="footer-logo" src="{% static 'img/COL_ICON.png' %}" alt="Logo">
+        <img id="footer-left" src="{% static 'img/GOV_ICON.png' %}" alt="Logo">
     </footer>
 </body>
