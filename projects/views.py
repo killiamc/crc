@@ -32,10 +32,10 @@ def cargar_ingresos(request):
     return render(request, "User_cargar_ingresos.html")
 
 def grafico_tendencia(request):
-    return render(request, "User_grafico_tendencia.html")
+    return render(request, "User_grafica_tendencia.html")
 
 def grafico_verhist(request):
-    return render(request, "User_grafico_verhist.html")
+    return render(request, "User_grafica_verhist.html")
 
 def prepro_abonados(request):
     return render(request, "User_prepro_abonados.html")

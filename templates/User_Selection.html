@@ -17,16 +17,15 @@
     <div class = "Img_container">
         <div class="Img_container_child">
             <h1 style="font-weight: bolder; color: #F42E62; font-size: 50px;">Bienvenidos!</h1>
-            <a href="{% static 'Info.html' %}" id="input_a">
+            <a href="{% url 'Info' %}" id="input_a">
                 <img src="{% static 'img/People_ICON.png' %}" alt="Logo">
             </a>
             <h2 style="font-size: medium; font-weight: lighter;">Continuar sin iniciar sesión</h2>
-            <a href="{% static 'Login.html' %}" id="input_a">
+            <a href="{% url 'Login' %}" id="input_a">
                 <img src="{% static 'img/Pep_ICON.png' %}" alt="Logo">
-            </a>
-            <a href="{% static 'Login.html' %}">
-                <h2 style="font-size: medium; font-weight: lighter;">Iniciar sesión o registrarse</h2>
-            </a>
+            </a> 
+            <h2 style="font-size: medium; font-weight: lighter;">Iniciar sesión o registrarse</h2>
+            
         </div>
         <img class="Img_bg" src="{% static 'img/BG_IMG.png' %}" alt="Logo">
     </div>

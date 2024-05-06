@@ -26,7 +26,7 @@
                 <div class="cuadro_usr">
                     <div class="cuadro_salir_usr">
                         <img class="crcimg_usr" src="{% static './Img/CRC.png' %}" alt="gov.co">
-                        <a href="{% static 'User_Selection.html' %}">
+                        <a href="{% url 'User_select' %}">
                             <button class="Salir_usr">salir</button>
                         </a>
                     </div>
@@ -34,35 +34,35 @@
                     <h5>Administrador</h5>
                     <h5>correo</h5>
                     <h5>mi perfil</h5>
-                    <a href="{% static 'Login.html' %}">
+                    <a href="{% url 'Login' %}">
                         <button class="cambiar_cuenta">Cambiar Cuenta</button>
                     </a>
                 </div>
             </div> 
         </div>  
         <div class="panel_control">
-            <a href="{% static 'User_admin_listausuarios.html' %}">
+            <a href="{% url 'ListaUsuarios' %}">
                 <button class="btn_usuarios">
                     <h3>
                         usuarios
                     </h3>     
                 </button>
             </a>
-            <a  href="{% static 'User_cargar_hist.html' %}">
+            <a  href="{% url 'cargar_hist' %}">
                 <button class="btn_cargar">
                     <h3>
                         cargar
                     </h3>
                 </button>
             </a>
-            <a href="{% static 'User_prepro_hist.html' %}">
+            <a href="{% url 'prepro_hist' %}">
                 <button class="btn_prepro">
                     <h3>
                         preprocesamiento
                     </h3>
                 </button>
             </a>
-            <a href="{% static 'User_grafica_verhist.html' %}">
+            <a href="{% url 'grafico_verhist' %}">
                 <button class="btn_graf">
                     <h3>
                         grafico
@@ -72,7 +72,7 @@
         </div> 
         <div class="Central">
             <div class="menu_central">
-                <a href="{% static 'User_grafica_verhist.html' %}">
+                <a href="{% url 'grafico_verhist' %}">
                     <div class="ver_historico">
                         <div class="cuadradohist">
                             <h2>Ver historicos</h2>
@@ -80,7 +80,7 @@
                         <div class="bordehist"></div>
                     </div>
                 </a>
-                <a href="{% static 'User_grafica_tendencia.html' %}">
+                <a href="{% url 'grafico_tendencia' %}">
                     <div class="tendencia">
                         <div class="cuadradoten">
                             <h2>Tendencia</h2>
