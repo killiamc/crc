@@ -33,14 +33,7 @@
             <form style="width: 90%;" method="post">
                 {% csrf_token %}
 
-                {% for field in form %}
-                <div class="form-group">
-                    {{ field | add_class:'form-control form-control-lg '}}
-                    
-                
-                </div>
-                <br>
-                {% endfor %}
+                {{form}}
                     
                 <br>
                 <center>

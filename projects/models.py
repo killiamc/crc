@@ -8,8 +8,7 @@ class CustomAccountManager(BaseUserManager):
 
     def create_user(self, first_name, last_name, email, password, telefono, cedula, **other_fields):
         
-        other_fields.setdefault('is_staff', True)
-        other_fields.setdefault('is_active', True)
+        
 
         if not email:
             raise ValueError('El email es obligatorio')
@@ -22,8 +21,9 @@ class CustomAccountManager(BaseUserManager):
             cedula=cedula,
             **other_fields
         )
+        
         user.set_password(password)
-        user.save(using=self._db)
+        user.save()
         return user
 
     def create_superuser(self, first_name, last_name, email, password, telefono, cedula, **other_fields):
@@ -47,14 +47,8 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     objects = CustomAccountManager()
-    password = models.CharField(max_length=100)
-
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'telefono', 'cedula', 'password']
-
-    class Meta:
-        verbose_name = 'email'
-        verbose_name_plural = 'emails'
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'telefono', 'cedula']
 
     def __str__(self):
         return self.email

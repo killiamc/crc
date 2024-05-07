@@ -4,7 +4,7 @@ from .forms import CreateUserForm
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from projects.models import NewUser
-from django.contrib.auth import authenticate,login, logout
+from django.contrib.auth import authenticate, login, logout
 
 def ConfRegistro(request):
     return render(request, "ConfRegistro.html")
@@ -20,7 +20,7 @@ def Login(request):
         email = request.POST['email']
         password = request.POST['password']
         print(email,password)
-        user = authenticate(request, email=email, password = password)
+        user = authenticate(request, email=email, password=password)
         print(user)
         if user is not None:
             login(request,user)
@@ -37,7 +37,11 @@ def Registro(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            print(form.cleaned_data)
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+
             return redirect('Login')
     else:
         print(form.errors)

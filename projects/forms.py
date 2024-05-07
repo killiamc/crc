@@ -1,16 +1,16 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from projects.models import NewUser
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class CreateUserForm(forms.ModelForm):
-    password1 = forms.CharField(widget=forms.PasswordInput(
-            attrs={'placeholder': 'Contraseña', 'class': 'form-control', 'id': 'password1', 'required': 'required'}))
-        
-    password2 = forms.CharField(widget=forms.PasswordInput(
-            attrs={'placeholder': 'Confirmar contraseña', 'class': 'form-control', 'id': 'password2', 'required': 'required'}))
+    
+    password = forms.CharField(label='Contraseña', widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'password', 'required': 'required'}))
     
     class Meta:
-        model = NewUser
+        model = User
         fields = ['first_name', 'last_name', 'email', 'telefono', 'cedula']
         widgets = {
             'first_name': forms.TextInput(attrs={'placeholder': 'Nombre', 'class': 'form-control', 'id': 'first_name', 'required': 'required'}),
@@ -20,6 +20,7 @@ class CreateUserForm(forms.ModelForm):
             'cedula': forms.TextInput(attrs={'placeholder': 'Cedula', 'class': 'form-control', 'id': 'cedula', 'required': 'required'}),
         }
 
+    
 
 
 

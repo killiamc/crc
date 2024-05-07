@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'crc.wsgi.application'
 
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://postgres:TOFGkuiOOhhtSSxKdWgEpCeKijTqlfDk@viaduct.proxy.rlwy.net:13491/railway')
+    'default': dj_database_url.parse('postgresql://postgres:jNuXEkDJqcuwLurIptWlsJiPtbPmRvjZ@viaduct.proxy.rlwy.net:46535/railway')
 }
 
 
