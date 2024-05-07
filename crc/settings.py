@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'projects.apps'
+    'projects.apps',
+    'projects',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -75,11 +77,16 @@ WSGI_APPLICATION = 'crc.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}'''
+
+import dj_database_url
+DATABASES = {
+    'default': dj_database_url.parse('postgresql://postgres:TOFGkuiOOhhtSSxKdWgEpCeKijTqlfDk@viaduct.proxy.rlwy.net:13491/railway')
 }
 
 
@@ -126,3 +133,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'projects.NewUser'

@@ -1,5 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .forms import CreateUserForm
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+from projects.models import NewUser
+
 
 def ConfRegistro(request):
     return render(request, "ConfRegistro.html")
@@ -14,7 +20,21 @@ def Login(request):
     return render(request, "Login.html")
 
 def Registro(request):
-    return render(request, "Registro.html")
+
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('ConfRegistro')
+    else:
+        print(form.errors)
+
+
+    context = {'form': form}
+
+    return render(request, "Registro.html", context=context) 
 
 def ListaUsuarios(request):
     return render(request, "User_admin_listausuarios.html")
@@ -48,3 +68,6 @@ def prepro_hist(request):
 
 def User_select(request):
     return render(request, "User_selection.html")
+
+
+    
