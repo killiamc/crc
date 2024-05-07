@@ -19,10 +19,11 @@
         </div>
 
         <div class="login-box">
-            <form>
-                <input type="text" id="input-login" name="Usuario"  placeholder="Usuario"  required>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" id="input-login" name="email"  placeholder="Usuario"  required>
             <br>
-                <input type="password" id="input-login" name="Contraseña"  placeholder="Contraseña"  required>
+                <input type="password" id="input-login" name="password"  placeholder="Contraseña"  required>
             <br>
                 
                 <input type="submit" id="input-button" value="Ingresar" onclick="window.location.href='User_admin_listausuarios.html'">

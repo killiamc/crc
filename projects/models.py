@@ -8,6 +8,9 @@ class CustomAccountManager(BaseUserManager):
 
     def create_user(self, first_name, last_name, email, password, telefono, cedula, **other_fields):
         
+        other_fields.setdefault('is_staff', True)
+        other_fields.setdefault('is_active', True)
+
         if not email:
             raise ValueError('El email es obligatorio')
         
@@ -47,7 +50,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     password = models.CharField(max_length=100)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'telefono', 'cedula']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'telefono', 'cedula', 'password']
 
     class Meta:
         verbose_name = 'email'

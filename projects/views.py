@@ -3,9 +3,8 @@ from django.http import HttpResponse
 from .forms import CreateUserForm
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-
 from projects.models import NewUser
-
+from django.contrib.auth import authenticate,login, logout
 
 def ConfRegistro(request):
     return render(request, "ConfRegistro.html")
@@ -17,7 +16,19 @@ def Info(request):
     return render(request, "Info.html")
 
 def Login(request):
-    return render(request, "Login.html")
+    if request.method =="POST":
+        email = request.POST['email']
+        password = request.POST['password']
+        print(email,password)
+        user = authenticate(request, email=email, password = password)
+        print(user)
+        if user is not None:
+            login(request,user)
+            return redirect('grafico_tendencia')
+        else:
+            return redirect('Login')
+    else:
+        return render(request, "Login.html", {})
 
 def Registro(request):
 
@@ -27,7 +38,7 @@ def Registro(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('ConfRegistro')
+            return redirect('Login')
     else:
         print(form.errors)
 
