@@ -40,6 +40,7 @@ def Registro(request):
             print(form.cleaned_data)
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
+            user.is_active = True
             user.save()
 
             return redirect('Login')
