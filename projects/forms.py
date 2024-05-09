@@ -20,6 +20,11 @@ class CreateUserForm(forms.ModelForm):
             'cedula': forms.TextInput(attrs={'placeholder': 'Cedula', 'class': 'form-control', 'id': 'cedula', 'required': 'required'}),
         }
 
+class AbonadoForm(forms.Form):
+    start = forms.DateField(label='Fecha Inicial', widget=forms.DateInput(attrs={'class': 'form-control', 'id': 'start', 'required': 'required'}))
+    end = forms.DateField(label='Fecha Final', widget=forms.DateInput(attrs={'class': 'form-control', 'id': 'end', 'required': 'required'}))
+    
+    
     
 
 

@@ -18,4 +18,5 @@ urlpatterns = [
     path('prepro_ingresos/', views.prepro_ingresos, name='prepro_ingresos'),
     path('prepro_hist/', views.prepro_hist, name='prepro_hist'),
     path('User_select/', views.User_select, name='User_select'),
+    path('User_welcome/', views.User_welcome, name='User_welcome'),
 ]
