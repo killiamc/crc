@@ -28,7 +28,7 @@ def Login(request):
         print(user)
         if user is not None:
             login(request,user)
-            return redirect('grafico_tendencia')
+            return redirect('User_welcome')
         else:
             return redirect('Login')
     else:
