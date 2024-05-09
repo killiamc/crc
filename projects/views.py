@@ -7,7 +7,7 @@ from projects.models import NewUser
 from django.contrib.auth import authenticate, login, logout
 import plotly.graph_objects as go
 import pandas as pd
-from projects.models import Abonado, TRAFICO
+from projects.models import Abonado, TRAFICO, Ingresos, AbonadosSten, IngresosSten, TraficoSten
 from django. contrib import messages
 
 def ConfRegistro(request):
@@ -72,10 +72,7 @@ def cargar_ingresos(request):
     return render(request, "User_cargar_ingresos.html")
 
 def grafico_tendencia(request):
-    return render(request, "User_grafica_tendencia.html")
 
-def grafico_verhist(request):
-    
     Table = request.GET.get('Table')
     Store_Table = Table
     fig = go.Figure()
@@ -83,11 +80,11 @@ def grafico_verhist(request):
 
 
     if Table == 'Trafico':
-        Required_Table = TRAFICO.objects.all()
+        Required_Table = TraficoSten.objects.all()
     elif Table == 'Abonados':
-        Required_Table = Abonado.objects.all()
+        Required_Table = TraficoSten.objects.all()
     else:
-        pass
+        Required_Table = TraficoSten.objects.all()
     
     #Abonados = Abonado.objects.all()
     if(Required_Table is not None):
@@ -99,7 +96,7 @@ def grafico_verhist(request):
     end = request.GET.get('end')
 
     if start or end:
-        if start < end:
+        if start <= end:
             if start:
                 if start == 'start':
                     messages.error(request, 'Por favor ingrese una fecha de inicio')
@@ -116,7 +113,7 @@ def grafico_verhist(request):
     if Required_Table is not None:
         Abon = pd.DataFrame(list(Required_Table.values()))
     #print(Abon)
-    if Table == 'Abonados':
+    if Required_Table is not None:
         fig = go.Figure(data=[go.Table(
         header=dict(values=['Año', 'Mes', 'Colombia Telecom', 'Colombia Movil', 'Comcel', 'ETB', 'UNE EPM', 'Avantel', 'Exito', 'Virgin Mobile', 'Partners Telecom', 'Setroc Mobile', 'UFF Movil', 'Cellvoz Colombia', 'Logistica Flash', 'LOV Telecom', 'Suma Movil']),
         cells=dict(values=[Abon.anno, 
@@ -140,35 +137,91 @@ def grafico_verhist(request):
                      alignsrc = 'center',
                     )),
         ])
-        fig.update_layout(title_text='Historico de Abonados')
-    elif Table == 'Trafico':
-        #ANNO,MES,COLOMBIA_TELECOMUNICACIONES,COLOMBIA_MOVIL,COMUNICACION_CELULAR_COMCEL,EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA,UNE_EPM,AVANTEL,ALMACENES_EXITO,VIRGIN_MOBILE,PARTNERS_TELECOM,SETROC_MOBILE,UFF_MOVIL,CELLVOZ_COLOMBIA,LOGISTICA_FLASH,LOV_TELECOMUNICACIONES,SUMA_MOVIL
-        print('Entro')
-        fig = go.Figure(data=[go.Table(
-        header=dict(values=['Año', 'Mes', 'Colombia Telecom', 'Colombia Movil', 'Comcel', 'ETB', 'UNE EPM', 'Avantel', 'Exito', 'Virgin Mobile', 'Partners Telecom', 'Setroc Mobile', 'UFF Movil', 'Cellvoz Colombia', 'Logistica Flash', 'LOV Telecom', 'Suma Movil']),
-        cells=dict(values=[Abon.anno, 
-                           Abon.mes, 
-                           Abon.colombia_telecomunicaciones, 
-                           Abon.colombia_movil, 
-                           Abon.comunicacion_celular_comcel, 
-                           Abon.empresa_de_telecomunicaciones_de_bogota, 
-                           Abon.une_epm, Abon.avantel, 
-                           Abon.almacenes_exito, 
-                           Abon.virgin_mobile, 
-                           Abon.partners_telecom, 
-                           Abon.setroc_mobile, 
-                           Abon.uff_movil, 
-                           Abon.cellvoz_colombia, 
-                           Abon.logistica_flash, 
-                           Abon.lov_telecomunicaciones, 
-                           Abon.suma_movil],
-                     align='center',
-                     fill_color = 'lightgrey',
-                     alignsrc = 'center',
-                    )),
-        ])
-        fig.update_layout(title_text='Historico de Traficos')
+        if Table == 'Trafico':
+            fig.update_layout(title='Tendencia Trafico')
+        elif Table == 'Abonados':
+            fig.update_layout(title='Tendencia Abonados')
+        else:
+            fig.update_layout(title='Tendencia Ingresos')
+    
+    table = fig.to_html()
+    context = {'table': table, 'form': AbonadoForm(), 'Required': Required_Table , 'Annos': Annos, 'Table': Store_Table}
 
+    return render(request, "User_grafica_tendencia.html", context=context)
+
+def grafico_verhist(request):
+    
+    Table = request.GET.get('Table')
+    Store_Table = Table
+    fig = go.Figure()
+    Required_Table = None
+
+
+    if Table == 'Trafico':
+        Required_Table = TRAFICO.objects.all()
+    elif Table == 'Abonados':
+        Required_Table = Abonado.objects.all()
+    else:
+        Required_Table = Ingresos.objects.all()
+    
+    #Abonados = Abonado.objects.all()
+    if(Required_Table is not None):
+        Annos = pd.DataFrame(list(Required_Table.values())).anno.unique()
+    else:
+        Annos = None
+   
+    start = request.GET.get('start')
+    end = request.GET.get('end')
+
+    if start or end:
+        if start <= end:
+            if start:
+                if start == 'start':
+                    messages.error(request, 'Por favor ingrese una fecha de inicio')
+                else:
+                    print(start)
+                    Required_Table = Required_Table.filter(anno__gte=start)
+            if end:
+                if end == 'end':
+                    messages.error(request, 'Por favor ingrese una fecha de fin')
+                else:
+                    print(end)
+                    Required_Table = Required_Table.filter(anno__lte=end)
+    
+    if Required_Table is not None:
+        Abon = pd.DataFrame(list(Required_Table.values()))
+    #print(Abon)
+    if Required_Table is not None:
+        fig = go.Figure(data=[go.Table(
+        header=dict(values=['Año', 'Mes', 'Colombia Telecom', 'Colombia Movil', 'Comcel', 'ETB', 'UNE EPM', 'Avantel', 'Exito', 'Virgin Mobile', 'Partners Telecom', 'Setroc Mobile', 'UFF Movil', 'Cellvoz Colombia', 'Logistica Flash', 'LOV Telecom', 'Suma Movil']),
+        cells=dict(values=[Abon.anno, 
+                           Abon.mes, 
+                           Abon.colombia_telecomunicaciones, 
+                           Abon.colombia_movil, 
+                           Abon.comunicacion_celular_comcel, 
+                           Abon.empresa_de_telecomunicaciones_de_bogota, 
+                           Abon.une_epm, Abon.avantel, 
+                           Abon.almacenes_exito, 
+                           Abon.virgin_mobile, 
+                           Abon.partners_telecom, 
+                           Abon.setroc_mobile, 
+                           Abon.uff_movil, 
+                           Abon.cellvoz_colombia, 
+                           Abon.logistica_flash, 
+                           Abon.lov_telecomunicaciones, 
+                           Abon.suma_movil],
+                     align='center',
+                     fill_color = 'lightgrey',
+                     alignsrc = 'center',
+                    )),
+        ])
+        if Table == 'Trafico':
+            fig.update_layout(title='Historico Trafico de Datos')
+        elif Table == 'Abonados':
+            fig.update_layout(title='Historico Abonados')
+        else:
+            fig.update_layout(title='Historico Ingresos')
+    
     table = fig.to_html()
     context = {'table': table, 'form': AbonadoForm(), 'Required': Required_Table , 'Annos': Annos, 'Table': Store_Table}
 

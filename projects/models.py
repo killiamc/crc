@@ -103,5 +103,96 @@ class Abonado(models.Model):
     class Meta:
         ordering = ['anno']
 
+class Ingresos(models.Model):
+    #ANNO,MES,COLOMBIA_TELECOMUNICACIONES,COLOMBIA_MOVIL,COMUNICACION_CELULAR_COMCEL,EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA,UNE_EPM,AVANTEL,ALMACENES_EXITO,VIRGIN_MOBILE,PARTNERS_TELECOM,SETROC_MOBILE,UFF_MOVIL,CELLVOZ_COLOMBIA,LOGISTICA_FLASH,LOV_TELECOMUNICACIONES,SUMA_MOVIL
+    anno = models.CharField(max_length=100)
+    mes = models.CharField(max_length=100)
+    colombia_telecomunicaciones = models.CharField(max_length=100)
+    colombia_movil = models.CharField(max_length=100)
+    comunicacion_celular_comcel = models.CharField(max_length=100)
+    empresa_de_telecomunicaciones_de_bogota = models.CharField(max_length=100)
+    une_epm = models.CharField(max_length=100)
+    avantel = models.CharField(max_length=100)
+    almacenes_exito = models.CharField(max_length=100)
+    virgin_mobile = models.CharField(max_length=100)
+    partners_telecom = models.CharField(max_length=100)
+    setroc_mobile = models.CharField(max_length=100)
+    uff_movil = models.CharField(max_length=100)
+    cellvoz_colombia = models.CharField(max_length=100)
+    logistica_flash = models.CharField(max_length=100)
+    lov_telecomunicaciones = models.CharField(max_length=100)
+    suma_movil = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ['anno']
+
+class TraficoSten(models.Model):
+    #ANNO,MES,COLOMBIA_TELECOMUNICACIONES,COLOMBIA_MOVIL,COMUNICACION_CELULAR_COMCEL,EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA,UNE_EPM,AVANTEL,ALMACENES_EXITO,VIRGIN_MOBILE,PARTNERS_TELECOM,SETROC_MOBILE,UFF_MOVIL,CELLVOZ_COLOMBIA,LOGISTICA_FLASH,LOV_TELECOMUNICACIONES,SUMA_MOVIL
+    anno = models.CharField(max_length=100)
+    mes = models.CharField(max_length=100)
+    colombia_telecomunicaciones = models.CharField(max_length=100)
+    colombia_movil = models.CharField(max_length=100)
+    comunicacion_celular_comcel = models.CharField(max_length=100)
+    empresa_de_telecomunicaciones_de_bogota = models.CharField(max_length=100)
+    une_epm = models.CharField(max_length=100)
+    avantel = models.CharField(max_length=100)
+    almacenes_exito = models.CharField(max_length=100)
+    virgin_mobile = models.CharField(max_length=100)
+    partners_telecom = models.CharField(max_length=100)
+    setroc_mobile = models.CharField(max_length=100)
+    uff_movil = models.CharField(max_length=100)
+    cellvoz_colombia = models.CharField(max_length=100)
+    logistica_flash = models.CharField(max_length=100)
+    lov_telecomunicaciones = models.CharField(max_length=100)
+    suma_movil = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ['anno']
+
+class AbonadosSten(models.Model):
+    #ANNO,MES,COLOMBIA_TELECOMUNICACIONES,COLOMBIA_MOVIL,COMUNICACION_CELULAR_COMCEL,EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA,UNE_EPM,AVANTEL,ALMACENES_EXITO,VIRGIN_MOBILE,PARTNERS_TELECOM,SETROC_MOBILE,UFF_MOVIL,CELLVOZ_COLOMBIA,LOGISTICA_FLASH,LOV_TELECOMUNICACIONES,SUMA_MOVIL
+    anno = models.CharField(max_length=100)
+    mes = models.CharField(max_length=100)
+    colombia_telecomunicaciones = models.CharField(max_length=100)
+    colombia_movil = models.CharField(max_length=100)
+    comunicacion_celular_comcel = models.CharField(max_length=100)
+    empresa_de_telecomunicaciones_de_bogota = models.CharField(max_length=100)
+    une_epm = models.CharField(max_length=100)
+    avantel = models.CharField(max_length=100)
+    almacenes_exito = models.CharField(max_length=100)
+    virgin_mobile = models.CharField(max_length=100)
+    partners_telecom = models.CharField(max_length=100)
+    setroc_mobile = models.CharField(max_length=100)
+    uff_movil = models.CharField(max_length=100)
+    cellvoz_colombia = models.CharField(max_length=100)
+    logistica_flash = models.CharField(max_length=100)
+    lov_telecomunicaciones = models.CharField(max_length=100)
+    suma_movil = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ['anno']
+
+class IngresosSten(models.Model):
+    #ANNO,MES,COLOMBIA_TELECOMUNICACIONES,COLOMBIA_MOVIL,COMUNICACION_CELULAR_COMCEL,EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA,UNE_EPM,AVANTEL,ALMACENES_EXITO,VIRGIN_MOBILE,PARTNERS_TELECOM,SETROC_MOBILE,UFF_MOVIL,CELLVOZ_COLOMBIA,LOGISTICA_FLASH,LOV_TELECOMUNICACIONES,SUMA_MOVIL
+    anno = models.CharField(max_length=100)
+    mes = models.CharField(max_length=100)
+    colombia_telecomunicaciones = models.CharField(max_length=100)
+    colombia_movil = models.CharField(max_length=100)
+    comunicacion_celular_comcel = models.CharField(max_length=100)
+    empresa_de_telecomunicaciones_de_bogota = models.CharField(max_length=100)
+    une_epm = models.CharField(max_length=100)
+    avantel = models.CharField(max_length=100)
+    almacenes_exito = models.CharField(max_length=100)
+    virgin_mobile = models.CharField(max_length=100)
+    partners_telecom = models.CharField(max_length=100)
+    setroc_mobile = models.CharField(max_length=100)
+    uff_movil = models.CharField(max_length=100)
+    cellvoz_colombia = models.CharField(max_length=100)
+    logistica_flash = models.CharField(max_length=100)
+    lov_telecomunicaciones = models.CharField(max_length=100)
+    suma_movil = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ['anno']
 
     
