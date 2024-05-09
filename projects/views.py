@@ -7,7 +7,7 @@ from projects.models import NewUser
 from django.contrib.auth import authenticate, login, logout
 import plotly.graph_objects as go
 import pandas as pd
-from projects.models import Abonado
+from projects.models import Abonado, TRAFICO
 from django. contrib import messages
 
 def ConfRegistro(request):
@@ -75,9 +75,26 @@ def grafico_tendencia(request):
     return render(request, "User_grafica_tendencia.html")
 
 def grafico_verhist(request):
-    #ANNO,MES,COLOMBIA_TELECOMUNICACIONES,COLOMBIA_MOVIL,COMUNICACION_CELULAR_COMCEL,EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA,UNE_EPM,AVANTEL,ALMACENES_EXITO,VIRGIN_MOBILE,PARTNERS_TELECOM,SETROC_MOBILE,UFF_MOVIL,CELLVOZ_COLOMBIA,LOGISTICA_FLASH,LOV_TELECOMUNICACIONES,SUMA_MOVIL
-    Abonados = Abonado.objects.all()
-    Annos = pd.DataFrame(list(Abonados.values())).anno.unique()
+    
+    Table = request.GET.get('Table')
+    Store_Table = Table
+    fig = go.Figure()
+    Required_Table = None
+
+
+    if Table == 'Trafico':
+        Required_Table = TRAFICO.objects.all()
+    elif Table == 'Abonados':
+        Required_Table = Abonado.objects.all()
+    else:
+        pass
+    
+    #Abonados = Abonado.objects.all()
+    if(Required_Table is not None):
+        Annos = pd.DataFrame(list(Required_Table.values())).anno.unique()
+    else:
+        Annos = None
+   
     start = request.GET.get('start')
     end = request.GET.get('end')
 
@@ -88,20 +105,19 @@ def grafico_verhist(request):
                     messages.error(request, 'Por favor ingrese una fecha de inicio')
                 else:
                     print(start)
-                    Abonados = Abonados.filter(anno__gte=start)
+                    Required_Table = Required_Table.filter(anno__gte=start)
             if end:
                 if end == 'end':
                     messages.error(request, 'Por favor ingrese una fecha de fin')
                 else:
                     print(end)
-                    Abonados = Abonados.filter(anno__lte=end)
+                    Required_Table = Required_Table.filter(anno__lte=end)
     
-
-
-
-    Abon = pd.DataFrame(list(Abonados.values()))
+    if Required_Table is not None:
+        Abon = pd.DataFrame(list(Required_Table.values()))
     #print(Abon)
-    fig = go.Figure(data=[go.Table(
+    if Table == 'Abonados':
+        fig = go.Figure(data=[go.Table(
         header=dict(values=['Año', 'Mes', 'Colombia Telecom', 'Colombia Movil', 'Comcel', 'ETB', 'UNE EPM', 'Avantel', 'Exito', 'Virgin Mobile', 'Partners Telecom', 'Setroc Mobile', 'UFF Movil', 'Cellvoz Colombia', 'Logistica Flash', 'LOV Telecom', 'Suma Movil']),
         cells=dict(values=[Abon.anno, 
                            Abon.mes, 
@@ -122,12 +138,39 @@ def grafico_verhist(request):
                      align='center',
                      fill_color = 'lightgrey',
                      alignsrc = 'center',
-                   )),
-    ])
-    fig.update_layout(title_text='Historico de Abonados')
-    
+                    )),
+        ])
+        fig.update_layout(title_text='Historico de Abonados')
+    elif Table == 'Trafico':
+        #ANNO,MES,COLOMBIA_TELECOMUNICACIONES,COLOMBIA_MOVIL,COMUNICACION_CELULAR_COMCEL,EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA,UNE_EPM,AVANTEL,ALMACENES_EXITO,VIRGIN_MOBILE,PARTNERS_TELECOM,SETROC_MOBILE,UFF_MOVIL,CELLVOZ_COLOMBIA,LOGISTICA_FLASH,LOV_TELECOMUNICACIONES,SUMA_MOVIL
+        print('Entro')
+        fig = go.Figure(data=[go.Table(
+        header=dict(values=['Año', 'Mes', 'Colombia Telecom', 'Colombia Movil', 'Comcel', 'ETB', 'UNE EPM', 'Avantel', 'Exito', 'Virgin Mobile', 'Partners Telecom', 'Setroc Mobile', 'UFF Movil', 'Cellvoz Colombia', 'Logistica Flash', 'LOV Telecom', 'Suma Movil']),
+        cells=dict(values=[Abon.anno, 
+                           Abon.mes, 
+                           Abon.colombia_telecomunicaciones, 
+                           Abon.colombia_movil, 
+                           Abon.comunicacion_celular_comcel, 
+                           Abon.empresa_de_telecomunicaciones_de_bogota, 
+                           Abon.une_epm, Abon.avantel, 
+                           Abon.almacenes_exito, 
+                           Abon.virgin_mobile, 
+                           Abon.partners_telecom, 
+                           Abon.setroc_mobile, 
+                           Abon.uff_movil, 
+                           Abon.cellvoz_colombia, 
+                           Abon.logistica_flash, 
+                           Abon.lov_telecomunicaciones, 
+                           Abon.suma_movil],
+                     align='center',
+                     fill_color = 'lightgrey',
+                     alignsrc = 'center',
+                    )),
+        ])
+        fig.update_layout(title_text='Historico de Traficos')
+
     table = fig.to_html()
-    context = {'table': table, 'form': AbonadoForm(), 'Abonados': Abonados , 'Annos': Annos}
+    context = {'table': table, 'form': AbonadoForm(), 'Required': Required_Table , 'Annos': Annos, 'Table': Store_Table}
 
     return render(request, "User_grafica_verhist.html", context=context)
     
