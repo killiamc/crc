@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from projects.models import NewUser
 from django.contrib.auth import authenticate, login, logout
+import plotly.graph_objects as go
+import pandas as pd
+
 
 def ConfRegistro(request):
     return render(request, "ConfRegistro.html")
@@ -72,6 +75,7 @@ def grafico_tendencia(request):
 
 def grafico_verhist(request):
     return render(request, "User_grafica_verhist.html")
+
 
 def prepro_abonados(request):
     return render(request, "User_prepro_abonados.html")
