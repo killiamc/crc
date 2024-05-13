@@ -432,7 +432,7 @@ def grafico_tendencia(request):
 
     return render(request, "User_grafica_tendencia.html", context=context)
 
-@login_required
+@login_required(login_url='Login')
 def grafico_verhist(request):
     
     Table = request.GET.get('Table')
