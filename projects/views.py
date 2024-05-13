@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .forms import CreateUserForm, AbonadoForm
 from django.contrib.auth.models import User
@@ -72,6 +73,7 @@ def cargar_abonados(request):
 def cargar_hist(request):
     return render(request, "User_cargar_hist.html")
 
+@login_required(login_url='Login')
 def cargar_ingresos(request):
     
     select = request.GET.get('Table')
@@ -351,6 +353,7 @@ def cargar_ingresos(request):
 
     return render(request, "User_cargar_ingresos.html", context=context)
 
+@login_required(login_url='Login')
 def grafico_tendencia(request):
 
     Table = request.GET.get('Table')
@@ -429,6 +432,7 @@ def grafico_tendencia(request):
 
     return render(request, "User_grafica_tendencia.html", context=context)
 
+@login_required
 def grafico_verhist(request):
     
     Table = request.GET.get('Table')
@@ -523,4 +527,13 @@ def User_select(request):
     return render(request, "User_selection.html")
 
 def User_welcome(request):
-    return render(request, "User_welcome.html")
+    context = {'user': request.user}
+    return render(request, "User_welcome.html", context=context)
+
+def go_to_admin(request):
+    return redirect('/admin/')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Has cerrado sesión')
+    return redirect('Login')
