@@ -1,19 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from .forms import CreateUserForm, AbonadoForm
-from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
-from projects.models import NewUser
 from django.contrib.auth import authenticate, login, logout
 import plotly.graph_objects as go
 import plotly.express as px
-import matplotlib.pyplot as plt
-import plotly.tools as tls
 import pandas as pd
 from projects.models import Abonado, TRAFICO, Ingresos, AbonadosSten, IngresosSten, TraficoSten
 from django.contrib import messages
-from django. contrib import messages
 
 def ConfRegistro(request):
     return render(request, "ConfRegistro.html")
