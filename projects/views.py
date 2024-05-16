@@ -505,8 +505,6 @@ def grafico_verhist(request):
 
     return render(request, "User_grafica_verhist.html", context=context)
     
-
-
 def prepro_abonados(request):
     return render(request, "User_prepro_abonados.html")
 
