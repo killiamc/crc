@@ -515,7 +515,7 @@ def prepro_hist(request):
     return render(request, "User_prepro_hist.html")
 
 def User_select(request):
-    return render(request, "User_selection.html")
+    return render(request, "User_Selection.html")
 
 def User_welcome(request):
     context = {'user': request.user}
