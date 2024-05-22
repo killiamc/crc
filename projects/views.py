@@ -84,7 +84,7 @@ def cargar_ingresos(request):
     Tables = Tables.replace('', '0')
     cols = Tables.columns[Tables.columns.get_loc('mes'):Tables.columns.get_loc('suma_movil')+1]
     for col in cols:
-        Tables[col] = Tables[col].astype('int64')
+        Tables[col] = Tables[col].astype('float')
 
     Names = Tables.columns[3:17].values
 
