@@ -1,5 +1,3 @@
-#CRC
-
 ### Killiam Puentes
 ### Steven Buritica
 
