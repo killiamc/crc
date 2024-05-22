@@ -1,7 +1,7 @@
 ### Killiam Puentes
 ### Steven Buritica
 
-# Pasos para la instalación
+# 🛠️ Pasos para la instalación
 
 1. Clonar el repositorio usando el comando:
     ```sh
@@ -25,3 +25,6 @@
 
 **Nota:** Al ejecutar el servidor por primera vez, puede generarse un error porque la base de datos puede estar suspendida. Si se genera un error, cancele el comando y vuelva a ejecutarlo una segunda vez.
 
+## 🌐 Página web actualmente desplegada en la nube
+
+[http://54.157.113.243:8000/](http://54.157.113.243:8000/)
